@@ -24,7 +24,12 @@ function Book() {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  console.log("hi console :)");
+  let addBookButton = document.querySelector(".add-book");
+  addBookButton.addEventListener("click", () => {
+    let formPopup = document.querySelector(".form-popup");
+    formPopup.style.setProperty("display", "block");
+  });
 }
 
 function displayBooks() {
@@ -45,3 +50,4 @@ function displayBooks() {
 }
 
 displayBooks();
+addBookToLibrary();
