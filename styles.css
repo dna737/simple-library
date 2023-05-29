@@ -13,8 +13,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .card {
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff7e6;
+}
+
+.starter-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+button.add-book {
+  background-color: aqua;
 }
