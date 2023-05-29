@@ -36,4 +36,8 @@ button.add-book {
 
 .form-popup {
   display: none;
+  height: 80vh;
+  width: 75vw;
+  position: absolute;
+  background-color: grey;
 }
