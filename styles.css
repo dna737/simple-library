@@ -41,3 +41,39 @@ button.add-book {
   position: absolute;
   background-color: grey;
 }
+
+.form-field {
+  margin: 20px;
+  font-size: xx-large;
+}
+
+.form-field,
+.form-field div {
+  margin-left: 0;
+}
+
+.submit-button {
+  margin-left: 30%;
+  height: 2rem;
+  width: 30%;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form-field > label {
+  /* text-decoration: underline; */
+  /* text-decoration: underline 0.15em rgba(0, 0, 0, 1); */
+}
+
+input {
+  height: 1.2rem;
+  /* width: fit-content; */
+  width: max-content;
+}
+
+input#completed-input {
+  height: 1.2rem;
+  width: 1.2rem;
+}
