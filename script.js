@@ -49,8 +49,8 @@ function getBookInfo() {
 function addBookToLibrary() {
   //now that the form details have been retrieved, add those details to the array.
   let newBook = getBookInfo();
-  console.log(newBook, "esdf");
   myLibrary.push(newBook);
+  displayBooks();
 }
 
 function displayBooks() {
@@ -58,6 +58,7 @@ function displayBooks() {
 
   let numBooks = myLibrary.length;
   const container = document.querySelector(".container");
+  container.innerHTML = ""; //clears the parent's content.
 
   for (let i = 0; i < numBooks; i++) {
     let card = document.createElement("div");
