@@ -33,3 +33,7 @@ body {
 button.add-book {
   background-color: aqua;
 }
+
+.form-popup {
+  display: none;
+}
