@@ -23,13 +23,25 @@ function Book() {
   // the constructor...
 }
 
-function addBookToLibrary() {
+function enableForm() {
   console.log("hi console :)");
   let addBookButton = document.querySelector(".add-book");
   addBookButton.addEventListener("click", () => {
     let formPopup = document.querySelector(".form-popup");
-    formPopup.style.setProperty("display", "block");
+    formPopup.style.setProperty("display", "flex");
+    formPopup.style.setProperty("justify-content", "center");
+    formPopup.style.setProperty("align-items", "center");
   });
+}
+
+function addBookToLibrary() {
+  enableForm();
+
+  //now that the form details have been retrieved, add those details to the array.
+
+  //   myLibrary.push({
+  //     title:
+  //   })
 }
 
 function displayBooks() {
