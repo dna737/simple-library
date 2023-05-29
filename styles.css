@@ -1,0 +1,20 @@
+.container {
+  display: grid;
+  border: 1px solid black;
+  grid-template-columns: repeat(3, 1fr);
+  height: 37vh;
+  width: 67vw;
+  margin: auto;
+  gap: 7.3%;
+}
+
+body {
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid black;
+}
