@@ -34,14 +34,36 @@ function enableForm() {
   });
 }
 
+function getBookInfo() {
+  let newBook = null;
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let title = document.getElementById("title-input").value;
+    let author = document.getElementById("author-input").value;
+    let numPages = parseInt(document.getElementById("num-pages-input").value);
+    let completed = document.getElementById("completed-input").checked;
+    newBook = {
+      title: title,
+      author: author,
+      numPages: numPages,
+      completed: completed,
+    };
+  });
+
+  if (newBook === null) {
+    console.log("Error!");
+  } else {
+    return newBook;
+  }
+}
+
 function addBookToLibrary() {
   enableForm();
 
   //now that the form details have been retrieved, add those details to the array.
-
-  //   myLibrary.push({
-  //     title:
-  //   })
+  let bookDetails = getBookInfo();
+  console.log(bookDetails);
 }
 
 function displayBooks() {
@@ -62,4 +84,5 @@ function displayBooks() {
 }
 
 displayBooks();
-addBookToLibrary();
+
+//call addBookToLibrary() when "Add Book" is called.
