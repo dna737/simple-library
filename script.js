@@ -24,7 +24,6 @@ function Book() {
 }
 
 function enableForm() {
-  let formPopup = document.querySelector(".form-popup");
   formPopup.style.setProperty("display", "flex");
   formPopup.style.setProperty("justify-content", "center");
   formPopup.style.setProperty("align-items", "center");
@@ -53,6 +52,14 @@ function addBookToLibrary() {
   displayBooks();
 }
 
+function setBookStatus(card, currentBook) {
+  if (currentBook.completed) {
+    card.style.setProperty("border", "2.4px solid green");
+  } else {
+    card.style.setProperty("border", "2.4px solid red");
+  }
+}
+
 function displayBooks() {
   //1. find the number of books and create a grid of that size.
 
@@ -64,12 +71,26 @@ function displayBooks() {
     let card = document.createElement("div");
     card.className = "card";
     container.appendChild(card);
-    card.innerText = myLibrary[i].title;
+    let currentBook = myLibrary[i];
+    card.innerText = currentBook.title;
+    // card.innerText = ("\nBy\n", currentBook);
+    card.innerText += `\nBy\n${currentBook.author}`;
+    card.innerText += `\nPages read: ${currentBook.numPages}`;
+    setBookStatus(card, currentBook);
+
     console.log(myLibrary[i].title);
   }
 }
 
-displayBooks();
+function clearForm() {
+  form.reset();
+}
+
+function hideFormContainer() {
+  formPopup.style.setProperty("display", "none");
+}
+
+let formPopup = document.querySelector(".form-popup");
 
 //call addBookToLibrary() when "Add Book" is called.
 let addBookButton = document.querySelector(".add-book");
@@ -78,13 +99,12 @@ addBookButton.addEventListener("click", () => {
   enableForm();
 });
 
-function clearForm() {
-  form.reset();
-}
-
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   addBookToLibrary();
   clearForm();
+  hideFormContainer();
 });
+
+displayBooks();
