@@ -1,8 +1,8 @@
 .container {
   display: grid;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   grid-template-columns: repeat(3, 1fr);
-  height: 37vh;
+  height: 80vh;
   width: 67vw;
   margin: auto;
   gap: 7.3%;
@@ -22,6 +22,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff7e6;
+  height: 20vh;
+  width: stretch;
 }
 
 .starter-info {
@@ -36,8 +38,8 @@ button.add-book {
 
 .form-popup {
   display: none;
-  height: 80vh;
-  width: 75vw;
+  height: 98%;
+  width: 98%;
   position: absolute;
   background-color: grey;
 }
@@ -59,7 +61,7 @@ button.add-book {
 }
 
 input[type="number"] {
-  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .form-field > label {
