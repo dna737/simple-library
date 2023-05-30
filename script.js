@@ -1,26 +1,14 @@
 let myLibrary = [
-  {
-    title: "The Pragmatic Programmer",
-    author: "Andy Hunt & Dave Thomas",
-    numPages: 352,
-    completed: true,
-  },
-  {
-    title: "Clean Code",
-    author: "Robert C. Martin",
-    numPages: 464,
-    completed: false,
-  },
-  {
-    title: "JavaScript: The Good Parts",
-    author: "Douglas Crockford",
-    numPages: 176,
-    completed: true,
-  },
+  new Book("The Pragmatic Programmer", "Andy Hunt & Dave Thomas", 352, true),
+  new Book("Clean Code", "Robert C. Martin", 464, false),
+  new Book("JavaScript: The Good Parts", "Douglas Crockford", 176, true),
 ];
 
-function Book() {
-  // the constructor...
+function Book(title, author, numPages, completed) {
+  this.title = title;
+  this.author = author;
+  this.numPages = numPages;
+  this.completed = completed;
 }
 
 function enableForm() {
@@ -35,12 +23,7 @@ function getBookInfo() {
   let author = document.getElementById("author-input").value;
   let numPages = parseInt(document.getElementById("num-pages-input").value);
   let completed = document.getElementById("completed-input").checked;
-  newBook = {
-    title: title,
-    author: author,
-    numPages: numPages,
-    completed: completed,
-  };
+  newBook = new Book(title, author, numPages, completed);
 
   return newBook;
 }
