@@ -1,8 +1,4 @@
-let myLibrary = [
-  new Book("The Pragmatic Programmer", "Andy Hunt & Dave Thomas", 352, true),
-  new Book("Clean Code", "Robert C. Martin", 464, false),
-  new Book("JavaScript: The Good Parts", "Douglas Crockford", 176, true),
-];
+let myLibrary = [];
 
 function Book(title, author, numPages, completed) {
   this.title = title;
@@ -57,8 +53,15 @@ function createRemoveButton(card, i) {
 
 function activateRemoveButton(removeButton) {
   removeButton.addEventListener("click", () => {
-    console.log("class:", removeButton.classList[0]);
+    let currParent = removeButton.parentElement;
+    removeBookFromLibrary(currParent);
   });
+}
+
+function removeBookFromLibrary(card) {
+  let currIndex = parseInt(card.classList[1].substring(5)); //for e.g., returns "32" from ".card-32"
+  myLibrary.splice(currIndex, 1);
+  card.remove();
 }
 
 function displayBooks() {
