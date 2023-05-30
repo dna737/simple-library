@@ -49,7 +49,16 @@ function createRemoveButton(card, i) {
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove Book";
   removeButton.classList.add(`rb-${i}`);
+  removeButton.classList.add("remove-button");
   card.appendChild(removeButton);
+
+  activateRemoveButton(removeButton);
+}
+
+function activateRemoveButton(removeButton) {
+  removeButton.addEventListener("click", () => {
+    console.log("class:", removeButton.classList[0]);
+  });
 }
 
 function displayBooks() {
