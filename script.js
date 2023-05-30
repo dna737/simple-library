@@ -43,10 +43,12 @@ function setBookStatus(card, currentBook) {
   }
 }
 
-function createRemoveButton(card) {
+function createRemoveButton(card, i) {
   console.log(card);
+  card.classList.add(`card-${i}`);
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove Book";
+  removeButton.classList.add(`rb-${i}`);
   card.appendChild(removeButton);
 }
 
@@ -67,7 +69,7 @@ function displayBooks() {
     card.innerText += `\nBy\n${currentBook.author}\n`;
     card.innerText += `Pages read: \n${currentBook.numPages}`;
     setBookStatus(card, currentBook);
-    createRemoveButton(card);
+    createRemoveButton(card, i);
     console.log(myLibrary[i].title);
   }
 }
