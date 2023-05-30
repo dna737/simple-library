@@ -43,6 +43,13 @@ function setBookStatus(card, currentBook) {
   }
 }
 
+function createRemoveButton(card) {
+  console.log(card);
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "Remove Book";
+  card.appendChild(removeButton);
+}
+
 function displayBooks() {
   //1. find the number of books and create a grid of that size.
 
@@ -57,10 +64,10 @@ function displayBooks() {
     let currentBook = myLibrary[i];
     card.innerText = currentBook.title;
     // card.innerText = ("\nBy\n", currentBook);
-    card.innerText += `\nBy\n${currentBook.author}`;
-    card.innerText += `\nPages read: ${currentBook.numPages}`;
+    card.innerText += `\nBy\n${currentBook.author}\n`;
+    card.innerText += `Pages read: \n${currentBook.numPages}`;
     setBookStatus(card, currentBook);
-
+    createRemoveButton(card);
     console.log(myLibrary[i].title);
   }
 }

@@ -19,11 +19,18 @@ body {
 .card {
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fff7e6;
-  height: 20vh;
+  max-height: 20vh;
   width: stretch;
+}
+
+.card > button {
+  margin-top: 10%;
+  background-color: red;
+  color: white;
 }
 
 .starter-info {
