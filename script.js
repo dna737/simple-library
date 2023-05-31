@@ -32,11 +32,26 @@ function addBookToLibrary() {
 }
 
 function setBookStatus(card, currentBook) {
+  //if the status is incomplete, then the button should read "mark as completed" and vice-versa.
+  const statusButton = document.createElement("div");
+  statusButton.classList.add("status-button");
   if (currentBook.completed) {
     card.style.setProperty("border", "2.4px solid green");
+    // statusButton.style.setProperty("background-color", "red");
+    statusButton.textContent = "Mark as incomplete";
   } else {
     card.style.setProperty("border", "2.4px solid red");
+    // statusButton.style.setProperty("background-color", "green");
+    statusButton.textContent = "Mark as completed";
   }
+
+  card.appendChild(statusButton);
+
+  //TODO: move the code below to another function called "switchBookStatus()"; just change the border colors and the textcontent of the appropriate div after the user clicks on it.
+  const marker = document.querySelector(".status-button");
+  marker.addEventListener("click", () => {
+    console.log(marker.textContent);
+  });
 }
 
 function createRemoveButton(card, i) {
