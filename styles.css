@@ -28,7 +28,7 @@ body {
 }
 
 .card > button {
-  margin-top: 10%;
+  /* margin-top: 5%; */
   background-color: red;
   color: white;
 }
@@ -80,4 +80,9 @@ input {
 input#completed-input {
   height: 1.2rem;
   width: 1.2rem;
+}
+
+.status-button {
+  text-align: center;
+  cursor: pointer;
 }
