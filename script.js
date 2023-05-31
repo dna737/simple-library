@@ -37,21 +37,38 @@ function setBookStatus(card, currentBook) {
   statusButton.classList.add("status-button");
   if (currentBook.completed) {
     card.style.setProperty("border", "2.4px solid green");
-    // statusButton.style.setProperty("background-color", "red");
     statusButton.textContent = "Mark as incomplete";
+    statusButton.style.setProperty("background-color", "#ffdddd");
   } else {
     card.style.setProperty("border", "2.4px solid red");
-    // statusButton.style.setProperty("background-color", "green");
     statusButton.textContent = "Mark as completed";
+    statusButton.style.setProperty("background-color", "#b5e6b5");
   }
 
   card.appendChild(statusButton);
 
-  //TODO: move the code below to another function called "switchBookStatus()"; just change the border colors and the textcontent of the appropriate div after the user clicks on it.
-  const marker = document.querySelector(".status-button");
-  marker.addEventListener("click", () => {
-    console.log(marker.textContent);
-  });
+  const markers = document.querySelectorAll(".status-button");
+  markers.forEach((marker) =>
+    marker.addEventListener("click", () => {
+      switchBookStatus(marker);
+    })
+  );
+}
+
+function switchBookStatus(marker) {
+  let card = marker.parentElement;
+  if (card) {
+    if (marker.textContent === "Mark as incomplete") {
+      console.log("parent element:", card);
+      marker.textContent = "Mark as complete";
+      card.style.setProperty("border", "2.4px solid red");
+      marker.style.setProperty("background-color", "#b5e6b5");
+    } else {
+      marker.textContent = "Mark as incomplete";
+      card.style.setProperty("border", "2.4px solid green");
+      marker.style.setProperty("background-color", "#ffdddd");
+    }
+  }
 }
 
 function createRemoveButton(card, i) {
