@@ -78,14 +78,14 @@ function activateStatusToggler(statusButton) {
 }
 
 function switchCardBorder(card, color) {
-  card.style.setProperty("border", `2.4px solid ${color}`);
+  card.style.setProperty("border", `4px solid ${color}`);
 }
 
 function setBookStatus(card, currentBook) {
   if (currentBook.completed) {
-    card.style.setProperty("border", "2.4px solid green");
+    card.style.setProperty("border", "4px solid green");
   } else {
-    card.style.setProperty("border", "2.4px solid red");
+    card.style.setProperty("border", "4px solid red");
   }
 }
 
