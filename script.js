@@ -47,43 +47,48 @@ function checkForBookReplacement(newBook) {
   return true;
 }
 
-function setBookStatus(card, currentBook) {
-  //if the status is incomplete, then the button should read "mark as completed" and vice-versa.
+function createStatusTogglers(card, currentBook) {
   const statusButton = document.createElement("div");
   statusButton.classList.add("status-button");
+  card.appendChild(statusButton);
   if (currentBook.completed) {
-    card.style.setProperty("border", "2.4px solid green");
+    //if the book is completed, the button should read "mark as incomplete" with a red background
     statusButton.textContent = "Mark as incomplete";
     statusButton.style.setProperty("background-color", "#ffdddd");
   } else {
-    card.style.setProperty("border", "2.4px solid red");
+    //otherwise, the book should read "mark as completed" with a green background
     statusButton.textContent = "Mark as completed";
     statusButton.style.setProperty("background-color", "#b5e6b5");
   }
 
-  card.appendChild(statusButton);
-
-  const markers = document.querySelectorAll(".status-button");
-  markers.forEach((marker) =>
-    marker.addEventListener("click", () => {
-      switchBookStatus(marker);
-    })
-  );
+  activateStatusToggler(statusButton);
 }
 
-function switchBookStatus(marker) {
-  let card = marker.parentElement;
-  if (card) {
-    if (marker.textContent === "Mark as incomplete") {
-      console.log("parent element:", card);
-      marker.textContent = "Mark as complete";
-      card.style.setProperty("border", "2.4px solid red");
-      marker.style.setProperty("background-color", "#b5e6b5");
+function activateStatusToggler(statusButton) {
+  statusButton.addEventListener("click", () => {
+    if (statusButton.textContent === "Mark as completed") {
+      statusButton.style.setProperty("background-color", "#ffdddd");
+      statusButton.textContent = "Mark as incomplete";
+      switchCardBorder(statusButton.parentElement, "green");
     } else {
-      marker.textContent = "Mark as incomplete";
-      card.style.setProperty("border", "2.4px solid green");
-      marker.style.setProperty("background-color", "#ffdddd");
+      statusButton.style.setProperty("background-color", "#b5e6b5");
+      statusButton.textContent = "Mark as completed";
+      console.log("statusButton's parent:", statusButton.parentElement);
+      switchCardBorder(statusButton.parentElement, "red");
     }
+  });
+}
+
+function switchCardBorder(card, color) {
+  console.log("parent's new color:", color);
+  card.style.setProperty("border", `2.4px solid ${color}`);
+}
+
+function setBookStatus(card, currentBook) {
+  if (currentBook.completed) {
+    card.style.setProperty("border", "2.4px solid green");
+  } else {
+    card.style.setProperty("border", "2.4px solid red");
   }
 }
 
@@ -129,6 +134,7 @@ function displayBooks() {
     card.innerText += `\nBy\n${currentBook.author}\n`;
     card.innerText += `Pages read: \n${currentBook.numPages}`;
     setBookStatus(card, currentBook);
+    createStatusTogglers(card, currentBook);
     createRemoveButton(card, i);
     console.log(myLibrary[i].title);
   }
@@ -158,5 +164,3 @@ form.addEventListener("submit", (event) => {
   clearForm();
   hideFormContainer();
 });
-
-displayBooks();
