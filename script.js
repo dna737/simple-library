@@ -27,8 +27,24 @@ function getBookInfo() {
 function addBookToLibrary() {
   //now that the form details have been retrieved, add those details to the array.
   let newBook = getBookInfo();
-  myLibrary.push(newBook);
+  if (!checkForBookReplacement(newBook)) {
+    myLibrary.push(newBook);
+  }
   displayBooks();
+}
+
+function checkForBookReplacement(newBook) {
+  const outdatedBookIndex = myLibrary.findIndex(
+    (book) => book.title === newBook.title && book.author === newBook.title
+  );
+
+  if (outdatedBookIndex === -1) {
+    return false;
+  }
+
+  myLibrary[outdatedBookIndex] = newBook;
+  console.log("new Library:", myLibrary);
+  return true;
 }
 
 function setBookStatus(card, currentBook) {
