@@ -43,7 +43,6 @@ function checkForBookReplacement(newBook) {
   }
 
   myLibrary[outdatedBookIndex] = newBook;
-  console.log("new Library:", myLibrary);
   return true;
 }
 
@@ -73,14 +72,12 @@ function activateStatusToggler(statusButton) {
     } else {
       statusButton.style.setProperty("background-color", "#b5e6b5");
       statusButton.textContent = "Mark as completed";
-      console.log("statusButton's parent:", statusButton.parentElement);
       switchCardBorder(statusButton.parentElement, "red");
     }
   });
 }
 
 function switchCardBorder(card, color) {
-  console.log("parent's new color:", color);
   card.style.setProperty("border", `2.4px solid ${color}`);
 }
 
@@ -93,7 +90,6 @@ function setBookStatus(card, currentBook) {
 }
 
 function createRemoveButton(card, i) {
-  console.log(card);
   card.classList.add(`card-${i}`);
   const removeButton = document.createElement("button");
   removeButton.textContent = "Remove Book";
@@ -136,7 +132,6 @@ function displayBooks() {
     setBookStatus(card, currentBook);
     createStatusTogglers(card, currentBook);
     createRemoveButton(card, i);
-    console.log(myLibrary[i].title);
   }
 }
 
@@ -153,7 +148,6 @@ let formPopup = document.querySelector(".form-popup");
 //call addBookToLibrary() when "Add Book" is called.
 let addBookButton = document.querySelector(".add-book");
 addBookButton.addEventListener("click", () => {
-  console.log("calling enable form...");
   enableForm();
 });
 
