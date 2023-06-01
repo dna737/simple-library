@@ -85,4 +85,5 @@ input#completed-input {
 .status-button {
   text-align: center;
   cursor: pointer;
+  border: 1px solid black;
 }
