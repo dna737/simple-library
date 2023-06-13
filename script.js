@@ -1,10 +1,12 @@
 let myLibrary = [];
 
-function Book(title, author, numPages, completed) {
-  this.title = title;
-  this.author = author;
-  this.numPages = numPages;
-  this.completed = completed;
+class Book {
+  constructor(title, author, numPages, completed) {
+    this.title = title;
+    this.author = author;
+    this.numPages = numPages;
+    this.completed = completed;
+  }
 }
 
 function enableForm() {
