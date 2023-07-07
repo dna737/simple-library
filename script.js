@@ -160,3 +160,30 @@ form.addEventListener("submit", (event) => {
   clearForm();
   hideFormContainer();
 });
+
+const authorInput = document.getElementById("author-input");
+authorInput.addEventListener("input", (event) => {
+  if (authorInput.validity.valueMissing) {
+    authorInput.setCustomValidity("I am expecting an Author!!");
+  } else {
+    authorInput.setCustomValidity("");
+  }
+});
+
+const titleInput = document.getElementById("title-input");
+titleInput.addEventListener("input", (event) => {
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("hey, I need a title!");
+  } else {
+    titleInput.setCustomValidity("");
+  }
+});
+
+const numPageInput = document.getElementById("num-pages-input");
+numPageInput.addEventListener("input", (event) => {
+  if (numPageInput.validity.valueMissing) {
+    numPageInput.setCustomValidity("bro, pls gimme a page!");
+  } else {
+    numPageInput.setCustomValidity("");
+  }
+});
